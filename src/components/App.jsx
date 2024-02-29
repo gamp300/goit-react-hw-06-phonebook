@@ -1,16 +1,25 @@
-export const App = () => {
+import React from 'react';
+import { Provider } from 'react-redux';
+import store from './store';
+import ContactForm from './ContactForm';
+import ContactList from './ContactList';
+import Filter from './Filter';
+import { FilterContainer } from './Filter.styled';
+
+const App = () => {
   return (
-    <div
-      style={{
-        height: '100vh',
-        display: 'flex',
-        justifyContent: 'center',
-        alignItems: 'center',
-        fontSize: 40,
-        color: '#010101'
-      }}
-    >
-      React homework template
-    </div>
+    <Provider store={store}>
+      <div>
+        <FilterContainer>
+          <h1>Agenda Telefónica</h1>
+          <ContactForm />
+          <h2>Contactos</h2>
+          <ContactList />
+          <Filter />
+        </FilterContainer>
+      </div>
+    </Provider>
   );
 };
+
+export default App;
